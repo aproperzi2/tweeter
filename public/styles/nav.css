@@ -1,0 +1,18 @@
+nav #logo {
+  font-family: 'Bungee', cursive;
+  font-size: 36px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 120px;
+  width: 100%;
+  background-color: #4056A1;
+  color: #FFFF;
+  padding: 1.5em;
+}
+
+#write-a-new-tweet {
+  text-align: center;
+}
