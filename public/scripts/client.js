@@ -4,10 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+const MAXLENGTH = 140;
+
 $(document).ready(() => {
   $('textarea').on('keyup', function() {
-    // let remain = 140 - $(this).val().length;
-    $('.counter').html(140 - $(this).val().length);
+    const remain = MAXLENGTH - $(this).val().length;
+    $('.counter').html(remain);
 
     if (remain < 0) {
       $('.counter').css('color', 'red');
