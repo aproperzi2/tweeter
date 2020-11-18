@@ -12,6 +12,7 @@ nav {
   color: #FFFF;
   padding: 1.5em;
   position: fixed;
+  top: 0;
 }
 
 #write-a-new-tweet {
