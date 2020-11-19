@@ -50,34 +50,16 @@
         <h3>What are you humming about?</h3>
         <form action="/tweets/" method="POST">
           <textarea name="text" id="tweet-text"></textarea>
+          <span>error</span>
           <div id="button-count">
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
       </section>
-      <article class="tweets">
-        <div id="tweet">
-          <header id="tweeter-header">
-            <div id="img-name">
-              <img src="/images/fav1.png" alt="">
-              <span>Luca</span>
-            </div>
-              <span id="fade"><b>@lproperzi2</b></span>
-          </header>
-          <main id="tweet-main">
-            <span>This is my tweet. Nice eh?</span>
-          </main>
-          <footer id="tweet-footer">
-            <span><b>10 days ago</b></span>
-            <div id="social-icons">
-              <img src="/images/flag.png" alt="">
-              <img src="/images/retweet.png" alt="">
-              <img src="/images/like.png" alt="">
-            </div>
-          </footer>
-        </div>
-      </article>
+      <div class="tweet-container">
+
+      </div>
     </main>
   </body>
 </html>
