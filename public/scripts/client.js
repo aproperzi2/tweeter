@@ -17,9 +17,12 @@ mybutton = document.getElementById("myBtn");
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
+  
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    $('#write-a-new-tweet').hide();
     mybutton.style.display = "block";
   } else {
+    $('#write-a-new-tweet').show();
     mybutton.style.display = "none";
   }
 }
