@@ -9,12 +9,12 @@ const MAXLENGTH = 140;
 
 
 $(document).ready(() => {
-  
 
   // toggle form
   $('.new-tweet').hide();
   $('#write-a-new-tweet').click(function() {
     $('.new-tweet').slideToggle('slow');
+    $('#tweet-text').focus();
   })
 
   $('textarea').on('keyup', function() {
@@ -29,6 +29,9 @@ $(document).ready(() => {
   });
 
   const createTweetElement = (tweetData) => {
+    let date = tweetData.created_at;
+    date = new Date(date * 1000);
+    date = date.toUTCString();
     const $tweet = $(`
     <article class="tweets">
       <div id="tweet">
@@ -43,7 +46,7 @@ $(document).ready(() => {
           <span>${tweetData.content.text}</span>
         </main>
         <footer id="tweet-footer">
-          <span><b>${tweetData.created_at}</b></span>
+          <span><b>${date}</b></span>
           <div id="social-icons">
             <img id ="fade" src="/images/flag.png" alt="">
             <img id ="fade" src="/images/retweet.png" alt="">

@@ -23,11 +23,13 @@ nav {
   transform: scale(1.2);
   transition: transform 0.6s ease;
 }
+
 #write-a-new-tweet:hover #arrow {
   animation: bounce 0.5s infinite;
   animation-direction: alternate;
   animation-iteration-count: infinite;
 }
+
 @keyframes bounce {
   from {
     transform: translate3d(0, 0, 0);
@@ -46,4 +48,3 @@ nav {
 #write-a-new-tweet:hover {
   opacity: 1;
 }
-
