@@ -32,7 +32,7 @@
       <div id="write-a-new-tweet">
         <span><b>Write</b>  a new tweet</span>
         <br>
-        <span style="color: red">&#8609;</span>
+        <span id="arrow" style="color: red">&#8609;</span>
       </div>
     </nav>
     <header id="main-header">
@@ -47,10 +47,13 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        
         <h3>What are you humming about?</h3>
         <form action="/tweets/" method="POST">
           <textarea name="text" id="tweet-text"></textarea>
-          <span>error</span>
+          <div id="error-handler">
+            <p id="error"></p>
+          </div>
           <div id="button-count">
             <button type="submit">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
@@ -61,5 +64,6 @@
 
       </div>
     </main>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
   </body>
 </html>

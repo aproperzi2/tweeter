@@ -6,6 +6,11 @@
   border-bottom: 2px solid black;
   width: 100%;
 }
+#error {
+  color: red;
+  font-size: 18px;
+  font-weight: 600;
+}
 
 form textarea {
   font-family: 'Source Sans Pro', sans-serif;

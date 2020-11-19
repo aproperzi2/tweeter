@@ -17,4 +17,10 @@ nav {
 
 #write-a-new-tweet {
   text-align: center;
+  cursor: pointer;
+  opacity: .5;
+}
+
+#write-a-new-tweet:hover {
+  opacity: 1;
 }

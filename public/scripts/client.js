@@ -7,6 +7,16 @@
 const MAXLENGTH = 140;
 
 $(document).ready(() => {
+
+  // toggle form
+  $('.new-tweet').hide();
+  $('#write-a-new-tweet').click(function() {
+    $('.new-tweet').slideToggle('slow');
+  })
+
+  // bouncing arrow
+
+
   $('textarea').on('keyup', function() {
     const remain = MAXLENGTH - $(this).val().length;
     $('.counter').html(remain);
@@ -75,15 +85,28 @@ $(document).ready(() => {
     event.preventDefault();
     const $input = $('#tweet-text');
     if ($input.val() === "") {
-      alert("Your supplied no input. Please try again.");
+      $("#error").hide();
+      $("#error").text("You cannot submit an empty text field. Please try again.");
+      $("#error").slideDown('slow');
+      setTimeout(function() {
+        $("#error").slideUp('slow');
+      }, 5000);
       return;
     } else if ($input.val().length > MAXLENGTH) {
-      alert("Your supplied too many characters. Please try again.");
+      $("#error").hide();
+      $("#error").text("You cannot submit that many characters. Please try again.");
+      $("#error").slideDown('slow');
+      setTimeout(function() {
+        $("#error").slideUp('slow');
+      }, 5000);
       return;
     }
     getTweets($input.serialize());
     $('.tweets').remove();
-    loadTweets();
+    setTimeout(function() {
+      loadTweets();
+    }, 1000)
+    
   })
 
   loadTweets();
