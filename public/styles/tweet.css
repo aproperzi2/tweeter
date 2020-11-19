@@ -14,10 +14,11 @@ article:hover{
 }
 
 #fade {
-  color: #f4f1ec;
+  opacity: 0;
 }
 
 article:hover #fade{
+  opacity: 1;
   color: grey;
 } 
 

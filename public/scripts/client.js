@@ -6,16 +6,16 @@
 
 const MAXLENGTH = 140;
 
+
+
 $(document).ready(() => {
+  
 
   // toggle form
   $('.new-tweet').hide();
   $('#write-a-new-tweet').click(function() {
     $('.new-tweet').slideToggle('slow');
   })
-
-  // bouncing arrow
-
 
   $('textarea').on('keyup', function() {
     const remain = MAXLENGTH - $(this).val().length;
@@ -45,9 +45,9 @@ $(document).ready(() => {
         <footer id="tweet-footer">
           <span><b>${tweetData.created_at}</b></span>
           <div id="social-icons">
-            <img src="/images/flag.png" alt="">
-            <img src="/images/retweet.png" alt="">
-            <img src="/images/like.png" alt="">
+            <img id ="fade" src="/images/flag.png" alt="">
+            <img id ="fade" src="/images/retweet.png" alt="">
+            <img id ="fade" src="/images/like.png" alt="">
           </div>
         </footer>
       </div>
