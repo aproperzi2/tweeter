@@ -1,0 +1,17 @@
+@media screen and (min-width: 1000px) {
+  nav {
+    background-color: #4056A1;
+  }
+  body {
+    display: flex;
+  }
+  #main-header {
+    width: 40%;
+    margin-top: 165px;
+    margin-left: 45px;
+  }
+  .container {
+    width: 100%;
+    margin-top: 120px;
+  }
+}

@@ -28,7 +28,7 @@ function scrollFunction() {
 }
 
 // When the user clicks on the button, scroll to the top of the document
-$('#myBtn').click(function topFunction() {
+$('#myBtn').click(() => {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 })
@@ -52,9 +52,32 @@ $('#myBtn').click(function topFunction() {
   });
 
   const createTweetElement = (tweetData) => {
-    let date = tweetData.created_at;
-    date = new Date(date * 1000);
-    date = date.toUTCString();
+    const dateCreated = tweetData.created_at;
+    const dateNow = new Date();
+    const millisecondsAgo = dateCreated - dateNow;
+
+    let secondsAgo = millisecondsAgo / 1000;
+    let minutesAgo = millisecondsAgo / (1000 * 60);
+    let daysAgo = millisecondsAgo / (1000 * 60 * 60 * 24);
+    let daysAgoString = "";
+
+    daysAgo = Math.abs(Math.round(daysAgo));
+    minutesAgo = Math.abs(Math.round(minutesAgo));
+    secondsAgo = Math.abs(Math.round(secondsAgo));
+    if (secondsAgo === 1) {
+      daysAgoString = `${secondsAgo} second ago`;
+    } else if (minutesAgo === 0) {
+      daysAgoString = `${secondsAgo} seconds ago`;
+    } else if (minutesAgo === 1) {
+      daysAgoString = `${minutesAgo} minute ago`;
+    } else if (daysAgo < 1) {
+      daysAgoString = `${minutesAgo} minutes ago`;
+    } else if (daysAgo === 1) {
+      daysAgoString = `${daysAgo} day ago`;
+    } else if (daysAgo > 1) {
+      daysAgoString = `${daysAgo} days ago`;
+    }
+
     const $tweet = $(`
     <article class="tweets">
       <div id="tweet">
@@ -69,7 +92,7 @@ $('#myBtn').click(function topFunction() {
           <span>${tweetData.content.text}</span>
         </main>
         <footer id="tweet-footer">
-          <span><b>${date}</b></span>
+          <span><b>${daysAgoString}</b></span>
           <div id="social-icons">
             <img id ="fade" src="/images/flag.png" alt="">
             <img id ="fade" src="/images/retweet.png" alt="">
