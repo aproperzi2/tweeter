@@ -21,4 +21,4 @@ This project includes responsive design, jquery animations, form validation, bac
 
 ## Final Product
 
-!["Home page with no user logged in"](https://github.com/aproperzi2/tweeter/public/features/tweeter1.png)
+!["Home page with no user logged in"](https://github.com/aproperzi2/tweeter/tree/master/public/features/tweeter1.png)
