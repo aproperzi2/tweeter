@@ -1,37 +1,29 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 const MAXLENGTH = 140;
-
-
 
 $(document).ready(() => {
 
   //Get the button:
-mybutton = document.getElementById("myBtn");
+  mybutton = document.getElementById("myBtn");
 
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-  
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    $('#write-a-new-tweet').hide();
-    mybutton.style.display = "block";
-  } else {
-    $('#write-a-new-tweet').show();
-    mybutton.style.display = "none";
+  function scrollFunction() {
+    
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      $('#write-a-new-tweet').hide();
+      mybutton.style.display = "block";
+    } else {
+      $('#write-a-new-tweet').show();
+      mybutton.style.display = "none";
+    }
   }
-}
 
-// When the user clicks on the button, scroll to the top of the document
-$('#myBtn').click(() => {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-})
+  // When the user clicks on the button, scroll to the top of the document
+  $('#myBtn').click(() => {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  })
 
   // toggle form
   $('.new-tweet').hide();
@@ -40,6 +32,7 @@ $('#myBtn').click(() => {
     $('#tweet-text').focus();
   })
 
+  // remaining characters
   $('textarea').on('keyup', function() {
     const remain = MAXLENGTH - $(this).val().length;
     $('.counter').html(remain);
@@ -51,6 +44,7 @@ $('#myBtn').click(() => {
     }
   });
 
+  // create new element with how long ago the tweet was made
   const createTweetElement = (tweetData) => {
     const dateCreated = tweetData.created_at;
     const dateNow = new Date();
@@ -105,6 +99,7 @@ $('#myBtn').click(() => {
     return $tweet;
   };
 
+  // render tweets
   const renderTweets = (tweets) => {
     for (let tweet of tweets) {
       let $currTweet = createTweetElement(tweet);
@@ -112,6 +107,7 @@ $('#myBtn').click(() => {
     }
   }
 
+  // load tweets
   const loadTweets = () => {
     $.ajax('/tweets', {method: 'GET'}) 
       .then(function(tweets) {
@@ -119,6 +115,7 @@ $('#myBtn').click(() => {
       })
   }
 
+  // get tweets
   const getTweets = (data) => {
     $.ajax({
       type: 'POST',
@@ -130,6 +127,7 @@ $('#myBtn').click(() => {
     }) 
   }
 
+  // submit handler
   $('.container .new-tweet form').submit(event => {
     event.preventDefault();
     const $input = $('#tweet-text');
@@ -154,10 +152,11 @@ $('#myBtn').click(() => {
     $('.tweets').remove();
     setTimeout(function() {
       loadTweets();
-    }, 1000)
+    }, 500)
     
   })
 
+  // load tweets when page is loaded
   loadTweets();
   
 });

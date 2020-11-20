@@ -49,7 +49,6 @@ article:hover #fade{
 #tweet-footer {
   display: flex;
   justify-content: space-between;
-  /* border-top: 3px solid; */
 }
 
 #tweet-footer span {
